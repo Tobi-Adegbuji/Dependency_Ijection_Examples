@@ -13,6 +13,7 @@ class PropertyInjectedControllerTest {
     @BeforeEach
     void setUp() {
        controller = new PropertyInjectedController();
+       //This is the least preferred way of DI
        controller.greetingService = new GreetingServiceImpl();
     }
 
