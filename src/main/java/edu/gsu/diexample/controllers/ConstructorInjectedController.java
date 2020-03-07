@@ -1,20 +1,19 @@
 package edu.gsu.diexample.controllers;
 
 import edu.gsu.diexample.services.GreetingService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
 @Controller
-public class PropertyInjectedController {
+public class ConstructorInjectedController {
 
-    //Autowired tells spring we want it to inject an instance of the greeting service
+    private GreetingService greetingService;
     // Qualifier tells spring what kind of service we want.
-    @Autowired @Qualifier("propertyGreetingServiceImpl")
-    public GreetingService greetingService;
-
-    public String getGreeting(){
-        return greetingService.sayGreeting();
+    public ConstructorInjectedController(@Qualifier("constructorGreetingServiceImpl") GreetingService greetingService) {
+        this.greetingService = greetingService;
     }
 
+    public String getGreeting() {
+        return greetingService.sayGreeting();
+    }
 }

@@ -1,10 +1,8 @@
 package edu.gsu.diexample.controllers;
 
-import edu.gsu.diexample.services.GreetingServiceImpl;
+import edu.gsu.diexample.services.ConstructorGreetingServiceImpl;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class PropertyInjectedControllerTest {
 
@@ -14,7 +12,7 @@ class PropertyInjectedControllerTest {
     void setUp() {
        controller = new PropertyInjectedController();
        //This is the least preferred way of DI
-       controller.greetingService = new GreetingServiceImpl();
+       controller.greetingService = new ConstructorGreetingServiceImpl();
     }
 
     @Test

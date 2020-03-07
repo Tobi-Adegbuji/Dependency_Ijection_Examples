@@ -1,6 +1,9 @@
 package edu.gsu.diexample;
 
+import edu.gsu.diexample.controllers.ConstructorInjectedController;
 import edu.gsu.diexample.controllers.MyController;
+import edu.gsu.diexample.controllers.PropertyInjectedController;
+import edu.gsu.diexample.controllers.SetterInjectedController;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -13,7 +16,7 @@ public class DiExampleApplication {
 		ApplicationContext ctx = SpringApplication.run(DiExampleApplication.class, args);
 		//Now we have a handle on the spring application context
 
-		//Because we annotated MyController class with @Component, it is identified as a bean
+		//Because we annotated MyController class with @Controller, it is identified as a bean
 		//We can now use ctx.getBeans for injection. The spring framework is managing the
 		//construction of my controller. I am not creating the object myself. This demonstrates
 		//inversion of control.
@@ -23,8 +26,27 @@ public class DiExampleApplication {
 
 		System.out.println(myController.sayHello());
 
+		System.out.println("--------- Property");
+		//Make sure everything is annotated.
+		// - PIController should have @Controller
+		// - Property should be @Autowired, since we need to make an instance of it
+		// - Greeting Service should be @Service, so it can be recognized as a spring managed component
+		PropertyInjectedController propertyInjectedController = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
+		System.out.println(propertyInjectedController.getGreeting());
+
+
+		System.out.println("------- Setter");
+		SetterInjectedController setterInjectedController = (SetterInjectedController) ctx.getBean("setterInjectedController");
+		System.out.println(setterInjectedController.getGreeting());
+
+
+		//Notice how you do not need to autowire constructors
+		System.out.println("------- Constructor");
+		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
+		System.out.println(constructorInjectedController.getGreeting());
+
 	}
-	//Inversion of Control: t means giving the control of creating and instantiating the spring beans to
+	//Inversion of Control: it means giving the control of creating and instantiating the spring beans to
 	// the Spring IOC container and the only work the developer does is configuring the beans
 
 
