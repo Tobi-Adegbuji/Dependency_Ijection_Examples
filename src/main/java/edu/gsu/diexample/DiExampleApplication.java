@@ -1,9 +1,6 @@
 package edu.gsu.diexample;
 
-import edu.gsu.diexample.controllers.ConstructorInjectedController;
-import edu.gsu.diexample.controllers.MyController;
-import edu.gsu.diexample.controllers.PropertyInjectedController;
-import edu.gsu.diexample.controllers.SetterInjectedController;
+import edu.gsu.diexample.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -45,6 +42,9 @@ public class DiExampleApplication {
 		System.out.println("------- Constructor");
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
+
+		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
+		System.out.println(i18nController.sayHello());
 
 	}
 	//Inversion of Control: it means giving the control of creating and instantiating the spring beans to
