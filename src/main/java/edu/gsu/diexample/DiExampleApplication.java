@@ -4,7 +4,7 @@ import edu.gsu.diexample.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
-
+//The power to choose how and what beans get injected is a great feature of spring
 @SpringBootApplication
 public class DiExampleApplication {
 
@@ -43,6 +43,7 @@ public class DiExampleApplication {
 		ConstructorInjectedController constructorInjectedController = (ConstructorInjectedController) ctx.getBean("constructorInjectedController");
 		System.out.println(constructorInjectedController.getGreeting());
 
+		System.out.println("------- Profile Use Case");
 		I18nController i18nController = (I18nController) ctx.getBean("i18nController");
 		System.out.println(i18nController.sayHello());
 

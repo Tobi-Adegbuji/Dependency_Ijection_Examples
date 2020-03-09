@@ -8,7 +8,7 @@ import org.springframework.stereotype.Controller;
 public class I18nController {
 
     private GreetingService greetingService;
-    //mo autowire needed for constructors
+    //no autowire needed for constructors
     public I18nController(@Qualifier("i18nService") GreetingService greetingService) {
         this.greetingService = greetingService;
     }
