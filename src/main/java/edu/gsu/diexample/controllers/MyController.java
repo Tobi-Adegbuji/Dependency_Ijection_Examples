@@ -1,13 +1,20 @@
 package edu.gsu.diexample.controllers;
 
+import edu.gsu.diexample.services.GreetingService;
 import org.springframework.stereotype.Controller;
 
 @Controller
 public class MyController {
 
+    private final GreetingService greetingService;
+    //No need for autowire
+    public MyController(GreetingService greetingService) {
+        this.greetingService = greetingService;
+    }
+
+
     public String sayHello(){
-        System.out.println("Hello World");
-        return "hi folks";
+      return greetingService.sayGreeting();
     }
 
 }

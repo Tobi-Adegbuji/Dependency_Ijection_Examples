@@ -24,6 +24,7 @@ public class DiExampleApplication {
 		//When spring creates beans, by default it makes it as the class name but starting with a lowercase letter.
 		//That is why we use a lower case letter.
 
+		System.out.println("--------- Primary Bean");
 		System.out.println(myController.sayHello());
 
 		System.out.println("--------- Property");
