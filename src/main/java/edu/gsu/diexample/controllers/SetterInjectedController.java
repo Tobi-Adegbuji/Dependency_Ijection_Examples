@@ -16,12 +16,12 @@ public class SetterInjectedController {
     // Qualifier tells spring what kind of service we want.
 
     @Autowired
-    public void setGreetingService(@Qualifier("setterGreetingServiceImpl") GreetingService greetingService){
+    public void setGreetingService(@Qualifier("setterGreetingServiceImpl") GreetingService greetingService) {
         //This is an interface, so any thing that implements this can go here
         this.greetingService = greetingService;
     }
 
-    public String getGreeting(){
+    public String getGreeting() {
         return greetingService.sayGreeting();
     }
 

@@ -10,10 +10,11 @@ public class PropertyInjectedController {
 
     //Autowired tells spring we want it to inject an instance of the greeting service
     // Qualifier tells spring what kind of service we want.
-    @Autowired @Qualifier("propertyGreetingServiceImpl")
+    @Autowired
+    @Qualifier("propertyGreetingServiceImpl")
     public GreetingService greetingService;
 
-    public String getGreeting(){
+    public String getGreeting() {
         return greetingService.sayGreeting();
     }
 

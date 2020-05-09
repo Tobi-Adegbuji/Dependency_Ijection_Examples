@@ -7,14 +7,15 @@ import org.springframework.stereotype.Controller;
 public class MyController {
 
     private final GreetingService greetingService;
-    //No need for autowire
+
+    //No need for autowire for constructor injections
     public MyController(GreetingService greetingService) {
         this.greetingService = greetingService;
     }
 
 
-    public String sayHello(){
-      return greetingService.sayGreeting();
+    public String sayHello() {
+        return greetingService.sayGreeting();
     }
 
 }

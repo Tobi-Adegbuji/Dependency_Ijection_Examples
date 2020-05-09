@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 public class ConstructorInjectedController {
 
     private GreetingService greetingService;
+
     // Qualifier tells spring what kind of service we want.
     public ConstructorInjectedController(@Qualifier("constructorGreetingServiceImpl") GreetingService greetingService) {
         this.greetingService = greetingService;

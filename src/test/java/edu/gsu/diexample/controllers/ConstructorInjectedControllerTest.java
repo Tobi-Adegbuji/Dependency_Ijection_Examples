@@ -12,9 +12,9 @@ class ConstructorInjectedControllerTest {
     void setUp() {
         //We are just mimicking what the spring framework is doing
         //This is the most preferred method for DI
-       constructerInjectedController = new ConstructorInjectedController(
-               new ConstructorGreetingServiceImpl()
-       );
+        constructerInjectedController = new ConstructorInjectedController(
+                new ConstructorGreetingServiceImpl()
+        );
     }
 
     @Test
