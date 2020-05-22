@@ -1,6 +1,5 @@
 package edu.gsu.diexample;
 
-import edu.gsu.diexample.config.JavaExampleConfig;
 import edu.gsu.diexample.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -50,8 +49,8 @@ public class DiExampleApplication {
         System.out.println(i18nController.sayHello());
 
         System.out.println("--------- Java Configuration Example");
-        JavaConfigExampleController javaConfigExampleController = (JavaConfigExampleController) ctx.getBean("javaConfigExampleController");
-        System.out.println(javaConfigExampleController.hi());
+        JavaConfigExampleController javaConfigExampleController = ctx.getBean("javaConfigExampleController", JavaConfigExampleController.class);
+        System.out.println(javaConfigExampleController.greet());
     }
     //Inversion of Control: it means giving the control of creating and instantiating the spring beans to
     // the Spring IOC container and the only work the developer does is configuring the beans

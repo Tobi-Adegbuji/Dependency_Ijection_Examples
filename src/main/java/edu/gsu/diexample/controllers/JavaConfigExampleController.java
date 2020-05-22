@@ -1,19 +1,20 @@
 package edu.gsu.diexample.controllers;
 
-import edu.gsu.diexample.config.JavaExampleConfig;
+import edu.gsu.diexample.services.GreetingService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 
-@Controller
 public class JavaConfigExampleController {
 
-    private JavaExampleConfig javaExampleConfig;
+    private GreetingService greetingService;
 
-    public JavaConfigExampleController(JavaExampleConfig javaExampleConfig){
-        this.javaExampleConfig = javaExampleConfig;
+    public JavaConfigExampleController(GreetingService greetingService) {
+        this.greetingService = greetingService;
     }
 
-    public String hi(){
-        return javaExampleConfig.sayGreeting();
+    public String greet(){
+        return greetingService.sayGreeting();
     }
 
 
