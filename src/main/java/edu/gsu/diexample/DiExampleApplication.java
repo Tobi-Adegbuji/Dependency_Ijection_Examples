@@ -1,12 +1,15 @@
 package edu.gsu.diexample;
 
 import edu.gsu.diexample.controllers.*;
+import edu.gsu.diexample.examplebeans.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.ImportResource;
 
 //The power to choose how and what beans get injected is a great feature of spring
 @SpringBootApplication
+@ImportResource("classpath:xmlconfig.xml")
 public class DiExampleApplication {
 
     public static void main(String[] args) {
@@ -51,6 +54,18 @@ public class DiExampleApplication {
         System.out.println("--------- Java Configuration Example");
         JavaConfigExampleController javaConfigExampleController = ctx.getBean("javaConfigExampleController", JavaConfigExampleController.class);
         System.out.println(javaConfigExampleController.greet());
+
+
+        System.out.println("--------- XML Configuration Example");
+        XMLConfigExampleController xmlConfigExampleController = ctx.getBean("xmlConfigBean", XMLConfigExampleController.class);
+        System.out.println(xmlConfigExampleController.greet());
+
+
+        System.out.println("----------- Properties Loading Example");
+        FakeDataSource fakeDataSource = ctx.getBean("fakeDataSource", FakeDataSource.class);
+        System.out.println(fakeDataSource);
+
+
     }
     //Inversion of Control: it means giving the control of creating and instantiating the spring beans to
     // the Spring IOC container and the only work the developer does is configuring the beans
