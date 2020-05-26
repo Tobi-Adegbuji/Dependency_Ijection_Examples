@@ -1,0 +1,44 @@
+
+#YAML GUIDE INTRODUCTION
+
+# this is a comment
+
+# A Property
+name: Tobi
+
+a_pound_sign: "#"
+
+names: # A list. Make sure you indent 2 spaces
+  -Tobi
+  -John
+  -Elizabeth
+
+book: # An Object with two properties
+  author: Joe Buck
+  publisher: Media Warner
+
+  #true boolean value
+  truth: yes
+  #true boolean value
+  another_truth: True
+  #true boolean value
+  more_true: true
+  #false boolean value
+  false: no
+  #false boolean value
+  another_false: FALSE
+  #false boolean value
+  more_false: false
+  #Put double quotes to escape the single tick
+  string_val: "this is it's quote"
+  #Same for colons
+  colon_string: "this: escapes the colon"
+  #Multi-Line Comments
+  include_new_lines: |
+    Im a sentance
+    Im s sentence on a differnt line
+#Ignores multi lines
+  ignore_new_lines: >
+    this is
+    just one huge
+    long string
