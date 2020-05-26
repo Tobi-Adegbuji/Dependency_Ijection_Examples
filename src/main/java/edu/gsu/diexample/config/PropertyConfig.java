@@ -7,10 +7,12 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 @Configuration
-@PropertySource("classpath:datasource.properties")
+//@PropertySource("classpath:datasource.properties") //Dont need this if you use the default application.properties for spring
 public class PropertyConfig {
 
     //@Value MUST BE USED if you want use properties (for annotations and java configs)
+
+    //Its common to set default values with property files and override them with environment variables for different OS's
 
     @Value("${musician.name}")
     String name;
