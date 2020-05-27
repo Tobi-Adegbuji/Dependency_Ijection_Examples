@@ -1,0 +1,20 @@
+#Spacing must be correct and even
+#Here we are using yaml to replace our application.properties file
+#Make sure the name of this file is application to successfully use this in spring boot
+#No annotations are needed in the config file such as property source if the name is application.yml
+
+pet:
+  petname: Zora
+  food: Steak
+  breed: Bull Dog
+  url: pet.com
+
+--- # 3 Dash lines indicate another file
+# This "new file" will override the default property files if the application.properties has an active profile of "de"
+spring:
+  profiles: de
+pet:
+  petname: Zora *** German
+  food: Steak *** German
+  breed: Bull Dog *** German
+  url: pet.com *** German

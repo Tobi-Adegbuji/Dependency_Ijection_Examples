@@ -8,7 +8,7 @@ name: Tobi
 
 a_pound_sign: "#"
 
-names: # A list. Make sure you indent 2 spaces
+names: # A list. Make sure you in`dent 2 spaces
   -Tobi
   -John
   -Elizabeth

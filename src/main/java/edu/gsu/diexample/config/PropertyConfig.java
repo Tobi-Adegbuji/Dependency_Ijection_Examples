@@ -1,6 +1,7 @@
 package edu.gsu.diexample.config;
 
 import edu.gsu.diexample.examplebeans.FakeDataSource;
+import edu.gsu.diexample.examplebeans.YAMLPetExample;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -22,11 +23,12 @@ public class PropertyConfig {
     String genre;
     @Value("${musician.url}")
     String url;
-
-    @Bean
-    public FakeDataSource fakeDataSourceBean(){
-        return new FakeDataSource();
-    }
+    @Value("${pet.petname}")
+    String petName;
+    @Value("${pet.food}")
+    String food;
+    @Value("${pet.breed}")
+    String breed;
 
     @Bean
     public FakeDataSource fakeDataSource(){
@@ -36,6 +38,11 @@ public class PropertyConfig {
         fakeDataSource.setInstrument(instrument);
         fakeDataSource.setUrl(url);
         return fakeDataSource;
+    }
+
+    @Bean
+    public YAMLPetExample petBean(){
+        return new YAMLPetExample(petName,food,breed);
     }
 
 }

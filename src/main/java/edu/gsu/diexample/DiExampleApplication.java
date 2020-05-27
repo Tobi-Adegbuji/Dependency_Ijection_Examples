@@ -2,6 +2,7 @@ package edu.gsu.diexample;
 
 import edu.gsu.diexample.controllers.*;
 import edu.gsu.diexample.examplebeans.FakeDataSource;
+import edu.gsu.diexample.examplebeans.YAMLPetExample;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -65,6 +66,9 @@ public class DiExampleApplication {
         FakeDataSource fakeDataSource = ctx.getBean("fakeDataSource", FakeDataSource.class);
         System.out.println(fakeDataSource);
 
+        System.out.println("----------- Properties Loading Example with YAML");
+        YAMLPetExample pet = ctx.getBean("petBean", YAMLPetExample.class);
+        System.out.println(pet);
 
     }
     //Inversion of Control: it means giving the control of creating and instantiating the spring beans to
